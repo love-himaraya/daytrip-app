@@ -20,10 +20,15 @@ export default {
   methods: {
     destinationPoint: function () {
       fetch(
-        "https://maps.googleapis.com/maps/api/directions/json?origin=東京駅&destination=横浜駅&key=AIzaSyCEzByJnyrHErn7CSPrwoh8ToTzPpKyyD0"
-      ).then((data) => {
-        this.totalTime = data.routes.legs.distance.text
-      })
+        "https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1099759103456456867&categoryId=10"
+      )
+        .then((res) => {
+          return res.json
+        })
+        .then((data) => {
+          console.log(data)
+          this.totalTime = data
+        })
     },
   },
 }
