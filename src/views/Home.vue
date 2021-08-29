@@ -1,33 +1,50 @@
 <template>
   <div>
     <div v-bind:class="totalTime">{{ totalTime }}</div>
-    <button v-on:click="destinationPoint">aaa</button>
+    <button v-on:click="timeToCook">所要時間</button>
+    <div v-bind:class="dishName">{{ dishName }}</div>
+    <button v-on:click="dishNameHyouji">料理名</button>
   </div>
 </template>
-<script src="https://maps.googleapis.com/maps/api/directions/json?origin=東京駅&destination=横浜駅&mode=bus&key=AIzaSyCEzByJnyrHErn7CSPrwoh8ToTzPpKyyD0" />
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue"
+import {
+  getFrenchRecipeRanking,
+  getChineseRecipeRanking,
+} from "@/components/get-ranking.js"
 
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
-  },
+
   data() {
-    return { totalTime: "" }
+    return { totalTime: "", dishName: "", dishMaterial: "" }
   },
   methods: {
-    destinationPoint: function () {
+    timeToCook: function () {
+      getChineseRecipeRanking().then((data) => {
+        for (let i = 0; i < data.result.length; i++) {
+          let recipeIndication = data.result[i].foodImageUrl
+          this.totalTime += recipeIndication
+        }
+      })
+    },
+    getFrench: function () {
+      getFrenchRecipeRanking().then((data) => {
+        for (let i = 0; i < data.result.length; i++) {
+          let recipeIndication = data.result[i].foodImageUrl
+          this.dishName += recipeIndication
+        }
+      })
+    },
+    dishNameHyouji: function () {
       fetch(
-        "https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1099759103456456867&categoryId=10"
+        "https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?applicationId=1005863942230053395&categoryType=large"
       )
-        .then((res) => {
-          return res.json
+        .then((rea) => {
+          return rea.json()
         })
-        .then((data) => {
-          console.log(data)
-          this.totalTime = data
+        .then((datas) => {
+          console.log(datas)
         })
     },
   },
