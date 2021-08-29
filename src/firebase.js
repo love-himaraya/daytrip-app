@@ -1,5 +1,5 @@
-import firebase from "firebase";
-import "firebase/firestore";
+import firebase from "firebase"
+import "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyCbZ0yoBoSk1zBnc3khGehKYf-ei_1eaSM",
@@ -9,6 +9,6 @@ const firebaseConfig = {
   messagingSenderId: "175944470079",
   appId: "1:175944470079:web:e3e3894cc9a82cb6fa728a",
   measurementId: "G-8M0WLMZTXG",
-};
+}
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig)
