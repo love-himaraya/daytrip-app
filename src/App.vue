@@ -10,7 +10,7 @@
       <!-- router-viewで読み込んだコンポーネントで emit という機能を使うために v-on:set-choice に setChoiceメソッドを登録する -->
       <!-- @ は v-on: の省略形 つまり @set-choice は v-on:set-chice -->
       <!-- : は v-bind: の省略形 つまり :choices は v-bind:choices -->
-      <router-view @set-choice="setChoice" :choices="choices" />
+      <router-view @set-choice="setChoice" :choice="choice" />
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@
 export default {
   data() {
     return {
-      choices: {
+      choice: {
         start: "",
         select: "",
       },
@@ -27,8 +27,8 @@ export default {
   },
   methods: {
     setChoice(choicePage, data) {
-      // 例えば、 choicePage が "start" だったら、 this.choices.start = data  となる。
-      this.choices[choicePage] = data
+      // 例えば、 choicePage が "start" だったら、 this.choice.start = data  となる。
+      this.choice[choicePage] = data
     },
   },
 }
