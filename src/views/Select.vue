@@ -17,7 +17,6 @@ export default {
   data: function () {
     return {
       categories: [],
-      number: 0,
     }
   },
   methods: {
@@ -34,12 +33,12 @@ export default {
         return rea.json()
       })
       .then((data) => {
-        console.log(data.result.medium)
-        console.log(this.choice.start)
+        // console.log(data.result.medium)
+        // console.log(this.choice.start)
         let temp = []
         for (let i = 0; i < data.result.medium.length; i++) {
           if (data.result.medium[i].parentCategoryId == this.choice.start) {
-            console.log(data.result.medium[i].categoryName)
+            // console.log(data.result.medium[i].categoryName)
             temp.push(data.result.medium[i])
           }
         }
