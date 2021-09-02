@@ -1,9 +1,12 @@
 <template>
   <div class="start">
-    <button @click="answer('中華料理')">中華料理</button>
-    <button @click="answer('イタリアン')">イタリアン</button>
-    <button @click="answer('和食')">和食</button>
-    <button @click="answer('郷土料理')">郷土料理</button>
+    <button
+      v-for="dishCategory in dishCategories"
+      v-bind:key="dishCategory.categoryId"
+      @click="answer(dishCategory.categoryId)"
+    >
+      {{ dishCategory.categoryName }}
+    </button>
   </div>
 </template>
 
@@ -11,6 +14,9 @@
 export default {
   props: {
     choice: Object,
+  },
+  data: function () {
+    return { dishCategories: [] }
   },
   methods: {
     answer(select) {
@@ -22,6 +28,22 @@ export default {
       // "/select" へ遷移する
       this.$router.push("/select")
     },
+  },
+  created() {
+    fetch(
+      "https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?applicationId=1005863942230053395&categoryType=large"
+    )
+      .then((rea) => {
+        return rea.json()
+      })
+      .then((data) => {
+        let temp = []
+        for (let i = 0; i < data.result.large.length; i++) {
+          console.log(data.result.large[i])
+          temp.push(data.result.large[i])
+        }
+        this.dishCategories = temp
+      })
   },
 }
 </script>
