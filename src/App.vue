@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       choice: {
-        start: "41",
+        start: "",
         select: "",
       },
     }
