@@ -1,7 +1,9 @@
 <template>
   <div class="end">
     <div v-for="(dish, index) in dishes" v-bind:key="index">
-      <img v-bind:src="dish.foodImageUrl" alt="" />
+      <A v-bind:HREF="dish.recipeUrl"
+        ><img v-bind:src="dish.foodImageUrl" alt=""
+      /></A>
     </div>
 
     <button @click="backToStart">ホームに戻る</button>
