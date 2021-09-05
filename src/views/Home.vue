@@ -1,11 +1,14 @@
 <template>
-  <div class="all__home">
-    <div>
-      <transition mode="out-in" appear>
-        <div class="toStart">
-          <router-link to="/start">ここをタッチ！</router-link>
-        </div>
-      </transition>
+  <div>
+    <h1>今日のご飯はなんだろな？</h1>
+    <div class="all__home">
+      <div>
+        <transition mode="out-in" appear>
+          <div class="toStart">
+            <router-link to="/start" class="hikaru">ここをタッチ！</router-link>
+          </div>
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -17,6 +20,10 @@ export default {
 }
 </script>
 <style scoped>
+.all__home {
+  display: flex;
+  justify-content: center;
+}
 .v-enter {
   opacity: 0;
 }
@@ -37,12 +44,16 @@ export default {
 }
 .toStart {
   display: flex;
-  height: 50rem;
+  height: 50vw;
   background-color: aquamarine;
   border-radius: 100%;
   justify-content: center;
-
-  line-height: 50rem;
-  font-size: 2rem;
+  align-items: center;
+  width: 50vw;
+  line-height: 50vw;
+  font-size: 4vw;
+}
+.hikaru:hover {
+  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
 }
 </style>
