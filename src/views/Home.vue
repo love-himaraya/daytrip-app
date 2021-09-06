@@ -28,7 +28,7 @@ export default {
   opacity: 0;
 }
 .v-enter-active {
-  transition: opacity 2s;
+  transition: opacity 6s;
 }
 .v-enter-to {
   opacity: 1;
@@ -52,6 +52,10 @@ export default {
   width: 50vw;
   line-height: 50vw;
   font-size: 4vw;
+  margin: 20vw;
+}
+.toStart:hover {
+  background-color: #cc33ff;
 }
 .hikaru:hover {
   font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
