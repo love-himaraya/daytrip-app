@@ -1,12 +1,13 @@
 <template>
-  <div class="select">
-    <button
+  <div class="start_select">
+    <div
+      class="select1"
       v-for="category in categories"
       v-bind:key="category.categoryId"
       @click="answer(category.categoryId)"
     >
       {{ category.categoryName }}
-    </button>
+    </div>
   </div>
 </template>
 

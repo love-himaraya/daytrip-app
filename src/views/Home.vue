@@ -3,7 +3,7 @@
     <h1>今日のご飯はなんだろな？</h1>
     <div class="all__home">
       <div>
-        <transition mode="out-in" appear>
+        <transition mode="out-in" name="start" appear>
           <div class="toStart" @click="toStart">ここをタッチ！</div>
         </transition>
       </div>
@@ -45,22 +45,22 @@ export default {
   font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
   font-size: 2rem;
 }
-.v-enter {
+.start-enter {
   opacity: 0;
 }
-.v-enter-active {
+.start-enter-active {
   transition: opacity 3s;
 }
-.v-enter-to {
+.start-enter-to {
   opacity: 1;
 }
-.v-leave {
+.start-leave {
   opacity: 1;
 }
-.v-leave-active {
+.start-leave-active {
   transition: opacity 2s;
 }
-.v-leave-to {
+.start-leave-to {
   opacity: 1;
 }
 </style>

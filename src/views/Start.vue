@@ -1,5 +1,5 @@
 <template>
-  <div class="start">
+  <div class="start_select">
     <transition-group appear>
       <div
         class="select1"
@@ -25,7 +25,7 @@ export default {
     answer(select) {
       // App.vueのdataをemitという機能を使って変更する。
       // 第一引数("set-cohice")は、使うemitの名前。 App.vue で <router-view @set-choice="setChoice" /> とセットしてる。
-      // 第二引数("start")は、emitで発動する関数に渡す第一引数。 setChoice("start","...") となって実行される。
+      // 第二引数("start&select")は、emitで発動する関数に渡す第一引数。 setChoice("start","...") となって実行される。
       // 第三引数(select)は、emitで発動する関数に渡す第二引数。 select が '中華料理' だったら setChoice("start","中華料理") となって実行される。
       this.$emit("set-choice", "start", select)
       // "/select" へ遷移する
@@ -44,7 +44,7 @@ export default {
         console.log(data.result.large)
         for (let i = 0; i < data.result.large.length; i++) {
           if (
-            i === 0 ||
+            i === 24 ||
             i === 5 ||
             i === 6 ||
             i == 7 ||
@@ -63,7 +63,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .all__home {
   display: flex;
   justify-content: center;
@@ -86,7 +86,7 @@ export default {
 .v-leave-to {
   opacity: 1;
 }
-.start {
+.start_select {
   display: flex;
   flex-direction: row;
   align-items: center;
