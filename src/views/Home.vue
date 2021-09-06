@@ -4,9 +4,7 @@
     <div class="all__home">
       <div>
         <transition mode="out-in" appear>
-          <div class="toStart">
-            <router-link to="/start" class="hikaru">ここをタッチ！</router-link>
-          </div>
+          <div class="toStart" @click="toStart">ここをタッチ！</div>
         </transition>
       </div>
     </div>
@@ -17,6 +15,11 @@
 
 export default {
   name: "Home",
+  methods: {
+    toStart() {
+      this.$router.push("/start") //Homeに戻る
+    },
+  },
 }
 </script>
 <style scoped>
@@ -56,8 +59,6 @@ export default {
 }
 .toStart:hover {
   background-color: #cc33ff;
-}
-.hikaru:hover {
   font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
 }
 </style>
