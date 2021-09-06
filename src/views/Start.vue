@@ -1,12 +1,15 @@
 <template>
   <div class="start">
-    <button
-      v-for="dishCategory in dishCategories"
-      v-bind:key="dishCategory.categoryId"
-      @click="answer(dishCategory.categoryId)"
-    >
-      {{ dishCategory.categoryName }}
-    </button>
+    <transition-group appear>
+      <div
+        class="select1"
+        v-for="dishCategory in dishCategories"
+        v-bind:key="dishCategory.categoryId"
+        @click="answer(dishCategory.categoryId)"
+      >
+        {{ dishCategory.categoryName }}
+      </div>
+    </transition-group>
   </div>
 </template>
 
@@ -38,9 +41,21 @@ export default {
       })
       .then((data) => {
         let temp = []
+        console.log(data.result.large)
         for (let i = 0; i < data.result.large.length; i++) {
-          console.log(data.result.large[i])
-          temp.push(data.result.large[i])
+          if (
+            i === 0 ||
+            i === 5 ||
+            i === 6 ||
+            i == 7 ||
+            i === 22 ||
+            i == 27 ||
+            i == 28 ||
+            i == 29 ||
+            i == 21
+          )
+            // console.log(data.result.large[i])
+            temp.push(data.result.large[i])
         }
         this.dishCategories = temp
       })
@@ -48,4 +63,50 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.all__home {
+  display: flex;
+  justify-content: center;
+}
+.v-enter {
+  opacity: 0;
+}
+.v-enter-active {
+  transition: opacity 1s;
+}
+.v-enter-to {
+  opacity: 1;
+}
+.v-leave {
+  opacity: 1;
+}
+.v-leave-active {
+  transition: opacity 2s;
+}
+.v-leave-to {
+  opacity: 1;
+}
+.start {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.select1 {
+  display: flex;
+  height: 20vw;
+  background-color: aquamarine;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  font-size: 1rem;
+  margin: 5vw;
+  transition: all 1s;
+}
+.select1:hover {
+  background-color: #cc33ff;
+  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
+  font-size: 1.2rem;
+}
+</style>
