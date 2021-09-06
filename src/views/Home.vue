@@ -60,5 +60,6 @@ export default {
 .toStart:hover {
   background-color: #cc33ff;
   font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
+  font-size: 5vw;
 }
 </style>
