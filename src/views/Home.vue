@@ -54,9 +54,13 @@ export default {
   justify-content: center;
   align-items: center;
   width: 50vw;
-  font-size: 1rem;
+  font-size: 2.5vw;
   margin: 20vw;
-  transition: all 2s;
+  transition: all 1s;
+  color: white;
+  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
+    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
+    -2px 0px 1px #003366, 0px -2px 1px #003366;
 }
 .toStart:hover {
   background-color: #cc33ff;
