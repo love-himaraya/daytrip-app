@@ -17,21 +17,17 @@ export default {
   name: "Home",
   methods: {
     toStart() {
-      this.$router.push("/start") //Homeに戻る
+      this.$router.push("/start")
     },
   },
 }
 </script>
 <style scoped>
-.all__home {
-  display: flex;
-  justify-content: center;
-}
 .v-enter {
   opacity: 0;
 }
 .v-enter-active {
-  transition: opacity 6s;
+  transition: opacity 3s;
 }
 .v-enter-to {
   opacity: 1;
@@ -45,6 +41,11 @@ export default {
 .v-leave-to {
   opacity: 1;
 }
+.all__home {
+  display: flex;
+  justify-content: center;
+}
+
 .toStart {
   display: flex;
   height: 50vw;
@@ -53,13 +54,13 @@ export default {
   justify-content: center;
   align-items: center;
   width: 50vw;
-  line-height: 50vw;
-  font-size: 4vw;
+  font-size: 1rem;
   margin: 20vw;
+  transition: all 2s;
 }
 .toStart:hover {
   background-color: #cc33ff;
   font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
-  font-size: 5vw;
+  font-size: 2rem;
 }
 </style>
