@@ -1,13 +1,16 @@
 <template>
-  <div class="start_select">
-    <div
-      class="select1"
-      v-for="category in categories"
-      v-bind:key="category.categoryId"
-      @click="answer(category.categoryId)"
-    >
-      {{ category.categoryName }}
+  <div>
+    <div class="select">
+      <div
+        class="select2"
+        v-for="category in categories"
+        v-bind:key="category.categoryId"
+        @click="answer(category.categoryId)"
+      >
+        {{ category.categoryName }}
+      </div>
     </div>
+    <div @click="backToStart">ホームに戻る</div>
   </div>
 </template>
 
@@ -24,6 +27,9 @@ export default {
     answer(select) {
       this.$emit("set-choice", "select", select)
       this.$router.push("/end")
+    },
+    backToStart() {
+      this.$router.push("/") //Homeに戻る
     },
   },
   created() {
@@ -49,4 +55,50 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.all__home {
+  display: flex;
+  justify-content: center;
+}
+.v-enter {
+  opacity: 0;
+}
+.v-enter-active {
+  transition: opacity 1s;
+}
+.v-enter-to {
+  opacity: 1;
+}
+.v-leave {
+  opacity: 1;
+}
+.v-leave-active {
+  transition: opacity 2s;
+}
+.v-leave-to {
+  opacity: 1;
+}
+.select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.select2 {
+  display: flex;
+  height: 20vw;
+  background-color: aquamarine;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  font-size: 1rem;
+  margin: 5vw;
+  transition: all 1s;
+}
+.select2:hover {
+  background-color: #cc33ff;
+  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
+  font-size: 1.2rem;
+}
+</style>

@@ -3,7 +3,7 @@
     <h1>今日のご飯はなんだろな？</h1>
     <div class="all__home">
       <div>
-        <transition mode="out-in" name="start" appear>
+        <transition mode="out-in" appear>
           <div class="toStart" @click="toStart">ここをタッチ！</div>
         </transition>
       </div>
@@ -17,12 +17,30 @@ export default {
   name: "Home",
   methods: {
     toStart() {
-      this.$router.push("/start") //Homeに戻る
+      this.$router.push("/start")
     },
   },
 }
 </script>
 <style scoped>
+.v-enter {
+  opacity: 0;
+}
+.v-enter-active {
+  transition: opacity 3s;
+}
+.v-enter-to {
+  opacity: 1;
+}
+.v-leave {
+  opacity: 1;
+}
+.v-leave-active {
+  transition: opacity 2s;
+}
+.v-leave-to {
+  opacity: 1;
+}
 .all__home {
   display: flex;
   justify-content: center;
@@ -44,23 +62,5 @@ export default {
   background-color: #cc33ff;
   font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
   font-size: 2rem;
-}
-.start-enter {
-  opacity: 0;
-}
-.start-enter-active {
-  transition: opacity 3s;
-}
-.start-enter-to {
-  opacity: 1;
-}
-.start-leave {
-  opacity: 1;
-}
-.start-leave-active {
-  transition: opacity 2s;
-}
-.start-leave-to {
-  opacity: 1;
 }
 </style>
