@@ -6,6 +6,7 @@
           <a v-bind:href="dish.recipeUrl"
             ><img v-bind:src="dish.foodImageUrl" alt=""
           /></a>
+          <p class="dishTitle">{{ dish.recipeTitle }}</p>
         </div>
       </div>
     </div>
@@ -83,5 +84,11 @@ export default {
   transform: translate(-50%, -50%);
   width: 50%;
   height: 80%;
+  border-radius: 50%;
+}
+
+.dishTitle {
+  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
+  font-size: 1.2rem;
 }
 </style>
