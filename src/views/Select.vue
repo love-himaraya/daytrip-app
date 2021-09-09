@@ -2,6 +2,7 @@
   <div>
     <transition-group appear class="select">
       <div
+        :style="{ backgroundImage: 'url(' + category[index] + ')' }"
         v-bind:id="'select_image_' + index"
         class="select2"
         v-for="(category, index) in categories"
@@ -21,7 +22,7 @@ export default {
   props: ["choice"],
   data: function () {
     return {
-      categories: [],
+      categories: [{ image: "" }],
     }
   },
   methods: {
@@ -41,7 +42,7 @@ export default {
         return rea.json()
       })
       .then((data) => {
-        // console.log(data.result.medium)
+        console.log(data.result.medium)
         // console.log(this.choice.start)
         let temp = []
         for (let i = 0; i < data.result.medium.length; i++) {
@@ -51,6 +52,23 @@ export default {
           }
         }
         this.categories = temp
+      })
+      .then(() => {
+        for (let n = 0; n < this.categories.length; n++) {
+          fetch(
+            `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1099759103456456867&categoryId=${this.choice.start}-${this.categories[n].categoryId}`
+          )
+            .then((res) => {
+              return res.json()
+            })
+            .then((data) => {
+              console.log(data)
+              console.log(data.result)
+              const ddata = data.result
+              console.log(ddata)
+              this.categories[n].image = ddata[1].foodImageUrl
+            })
+        }
       })
   },
 }
