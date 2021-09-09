@@ -1,10 +1,21 @@
 <template>
   <div class="end">
     <div v-for="(dish, index) in dishes" v-bind:key="index">
-      <img v-bind:src="dish.foodImageUrl" alt="" />
+      <div class="flex-item">
+        <div class="image-wrap">
+          <a v-bind:href="dish.recipeUrl"
+            ><img v-bind:src="dish.foodImageUrl" alt=""
+          /></a>
+        </div>
+      </div>
     </div>
 
-    <button @click="backToStart">ホームに戻る</button>
+    <button class="homeButton">
+      <router-link to="/">ホームに戻る</router-link>
+    </button>
+    <button class="startButton">
+      <router-link to="/start">メニューを選び直す</router-link>
+    </button>
   </div>
 </template>
 
@@ -39,9 +50,6 @@ export default {
     answer(select) {
       this.$emit("set-choice", "end", select)
     },
-    backToStart() {
-      this.$router.push("/") //Homeに戻る
-    },
     shuffleDish() {
       this.shuffledDishes = this.shuffle(this.dishes)
     },
@@ -56,5 +64,24 @@ export default {
   },
 }
 </script>
+<style scoped>
+.flex-item {
+  flex-basis: 100%;
+}
 
-<style scoped></style>
+.image-wrap {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+  margin: 10px 5px;
+}
+
+.image-wrap img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 80%;
+}
+</style>
