@@ -1,7 +1,13 @@
 <template>
   <div class="end">
     <div v-for="(dish, index) in dishes" v-bind:key="index">
-      <img v-bind:src="dish.foodImageUrl" alt="" />
+      <div class="flex-item">
+        <div class="image-wrap">
+          <A v-bind:HREF="dish.recipeUrl"
+            ><img v-bind:src="dish.foodImageUrl" alt=""
+          /></A>
+        </div>
+      </div>
     </div>
 
     <button @click="backToStart">ホームに戻る</button>
@@ -57,4 +63,23 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.flex-item {
+  flex-basis: 100%;
+}
+.image-wrap {
+  position: relative;
+  overflow: hidden;
+  padding-top: 60%;
+  margin: 10px 5px;
+}
+
+.image-wrap img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+}
+</style>
