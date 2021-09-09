@@ -144,11 +144,11 @@ export default {
   background-image: url("https://images.unsplash.com/photo-1543806053-d4617b244862?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=766&q=80");
   background-size: cover;
 }
-/* #start_image_4 {
-  
-  background-image: url("https://images.unsplash.com/photo-1608334481162-bba440193a20?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
-  background-size: cover;
-} */
+#start_image_4 {
+  background-image: url("https://cdn.pixabay.com/photo/2018/07/19/07/17/purse-3548021_1280.jpg");
+  background-position: 50%, 70%;
+  background-size: 150%;
+}
 #start_image_5 {
   background-image: url("https://images.unsplash.com/photo-1596352670192-5a95e357df7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80");
   background-position: 50%, 70%;
