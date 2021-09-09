@@ -10,7 +10,12 @@
       </div>
     </div>
 
-    <button @click="backToStart">ホームに戻る</button>
+    <button class="homeButton">
+      <router-link to="/">ホームに戻る</router-link>
+    </button>
+    <button class="startButton">
+      <router-link to="/start">メニューを選び直す</router-link>
+    </button>
   </div>
 </template>
 
@@ -45,9 +50,6 @@ export default {
     answer(select) {
       this.$emit("set-choice", "end", select)
     },
-    backToStart() {
-      this.$router.push("/") //Homeに戻る
-    },
     shuffleDish() {
       this.shuffledDishes = this.shuffle(this.dishes)
     },
@@ -62,11 +64,11 @@ export default {
   },
 }
 </script>
-
 <style scoped>
 .flex-item {
   flex-basis: 100%;
 }
+
 .image-wrap {
   position: relative;
   overflow: hidden;
@@ -80,6 +82,6 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
-  height: 50%;
+  height: 80%;
 }
 </style>
