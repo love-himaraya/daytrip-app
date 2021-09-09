@@ -3,9 +3,9 @@
     <div v-for="(dish, index) in dishes" v-bind:key="index">
       <div class="flex-item">
         <div class="image-wrap">
-          <A v-bind:HREF="dish.recipeUrl"
+          <a v-bind:HREF="dish.recipeUrl"
             ><img v-bind:src="dish.foodImageUrl" alt=""
-          /></A>
+          /></a>
         </div>
       </div>
     </div>
