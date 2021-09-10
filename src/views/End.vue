@@ -1,13 +1,11 @@
 <template>
   <div class="end">
     <div v-for="(dish, index) in dishes" v-bind:key="index">
-      <div class="flex-item">
-        <div class="image-wrap">
-          <a v-bind:href="dish.recipeUrl"
-            ><img v-bind:src="dish.foodImageUrl" alt=""
-          /></a>
-          <p class="dishTitle">{{ dish.recipeTitle }}</p>
-        </div>
+      <p class="dishTitle">{{ dish.recipeTitle }}</p>
+      <div class="image-wrap">
+        <a v-bind:href="dish.recipeUrl"
+          ><img v-bind:src="dish.foodImageUrl" alt=""
+        /></a>
       </div>
     </div>
 
@@ -66,15 +64,18 @@ export default {
 }
 </script>
 <style scoped>
-.flex-item {
-  flex-basis: 100%;
+.end {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .image-wrap {
+  width: 700px;
   position: relative;
   overflow: hidden;
-  padding-top: 60%;
-  margin: 10px 5px;
+  padding-top: 70%;
+  margin: 5px, 5px, 10px, 5px;
 }
 
 .image-wrap img {
@@ -82,7 +83,8 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  border-radius: 50%;
+  width: 60%;
   height: 80%;
   border-radius: 50%;
 }
@@ -90,5 +92,37 @@ export default {
 .dishTitle {
   font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
   font-size: 1.2rem;
+}
+
+.dishTitle {
+  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
+  font-size: 1.2rem;
+}
+
+.dishTitle {
+  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
+  font-size: 1.2rem;
+}
+
+.homeButton {
+  color: red;
+  border-width: 0px;
+  border: none; /* 枠線を消す */
+  outline: none; /* クリックしたときに表示される枠線を消す */
+  background: transparent; /* 背景の灰色を消す */
+}
+
+.startButton {
+  color: red;
+  border-width: 0px;
+  border: none; /* 枠線を消す */
+  outline: none; /* クリックしたときに表示される枠線を消す */
+  background: transparent; /* 背景の灰色を消す */
+}
+
+a {
+  text-decoration: none;
+  color: red;
+  font-size: 18px;
 }
 </style>
