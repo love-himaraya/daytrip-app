@@ -3,7 +3,7 @@
     <div class="start">
       <transition-group appear class="wide">
         <div
-          v-bind:id="'image_' + index"
+          v-bind:id="'start_image_' + index"
           class="select1"
           v-for="(dishCategory, index) in dishCategories"
           v-bind:key="dishCategory.categoryId"
@@ -100,6 +100,10 @@ export default {
   flex-wrap: wrap;
 }
 .select1 {
+  color: white;
+  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
+    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
+    -2px 0px 1px #003366, 0px -2px 1px #003366;
   display: flex;
   height: 20vw;
   background-color: aquamarine;
@@ -123,81 +127,46 @@ export default {
   align-items: center;
   flex-wrap: wrap;
 }
-#image_0 {
-  color: white;
-  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
-    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
-    -2px 0px 1px #003366, 0px -2px 1px #003366;
+#start_image_0 {
   background-image: url("https://images.unsplash.com/photo-1608334481162-bba440193a20?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
   background-position: 50%, 70%;
   background-size: 90%;
 }
-#image_1 {
-  color: white;
-  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
-    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
-    -2px 0px 1px #003366, 0px -2px 1px #003366;
+#start_image_1 {
   background-image: url("https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80");
   background-size: cover;
 }
-#image_2 {
-  color: white;
-  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
-    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
-    -2px 0px 1px #003366, 0px -2px 1px #003366;
+#start_image_2 {
   background-image: url("https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
   background-size: 100%;
 }
-#image_3 {
-  color: white;
-  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
-    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
-    -2px 0px 1px #003366, 0px -2px 1px #003366;
+#start_image_3 {
   background-image: url("https://images.unsplash.com/photo-1543806053-d4617b244862?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=766&q=80");
   background-size: cover;
 }
-/* #image_4 {
-  color: white;
-  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
-    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
-    -2px 0px 1px #003366, 0px -2px 1px #003366;
-  background-image: url("https://images.unsplash.com/photo-1608334481162-bba440193a20?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80");
-  background-size: cover;
-} */
-#image_5 {
-  color: white;
-  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
-    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
-    -2px 0px 1px #003366, 0px -2px 1px #003366;
+#start_image_4 {
+  background-image: url("https://cdn.pixabay.com/photo/2018/07/19/07/17/purse-3548021_1280.jpg");
+  background-position: 50%, 70%;
+  background-size: 150%;
+}
+#start_image_5 {
   background-image: url("https://images.unsplash.com/photo-1596352670192-5a95e357df7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80");
   background-position: 50%, 70%;
   background-size: 130%;
 }
-#image_6 {
-  color: white;
-  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
-    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
-    -2px 0px 1px #003366, 0px -2px 1px #003366;
+#start_image_6 {
   background-image: url("https://cdn.pixabay.com/photo/2014/08/02/18/15/fried-408540_1280.jpg");
   background-size: cover;
 }
-#image_7 {
-  color: white;
-  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
-    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
-    -2px 0px 1px #003366, 0px -2px 1px #003366;
+#start_image_7 {
   background-image: url("https://images.unsplash.com/photo-1583224964978-2257b960c3d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80");
   background-position: 50%, 70%;
   background-size: 120%;
 }
-#image_8 {
+#start_image_8 {
   background-image: url("https://cdn.pixabay.com/photo/2020/06/08/16/49/pizza-5275191_1280.jpg");
   background-position: 50%, 70%;
   background-size: 120%;
-  color: white;
-  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
-    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
-    -2px 0px 1px #003366, 0px -2px 1px #003366;
 }
 
 #aaaa {

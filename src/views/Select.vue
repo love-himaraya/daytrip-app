@@ -1,15 +1,16 @@
 <template>
   <div>
-    <div class="select">
+    <transition-group appear class="select">
       <div
+        v-bind:id="'select_image_' + index"
         class="select2"
-        v-for="category in categories"
+        v-for="(category, index) in categories"
         v-bind:key="category.categoryId"
         @click="answer(category.categoryId)"
       >
         {{ category.categoryName }}
       </div>
-    </div>
+    </transition-group>
     <div @click="backToStart">ホームに戻る</div>
   </div>
 </template>
@@ -80,11 +81,15 @@ export default {
 }
 .select {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 .select2 {
+  color: white;
+  text-shadow: 2px 2px 1px #003366, -2px 2px 1px #003366, 2px -2px 1px #003366,
+    -2px -2px 1px #003366, 2px 0px 1px #003366, 0px 2px 1px #003366,
+    -2px 0px 1px #003366, 0px -2px 1px #003366;
   display: flex;
   height: 20vw;
   background-color: aquamarine;
@@ -92,13 +97,20 @@ export default {
   justify-content: center;
   align-items: center;
   width: 20vw;
-  font-size: 1rem;
-  margin: 5vw;
+  margin: 2vw;
+  padding: 1vw;
   transition: all 1s;
+  font-size: 2vw;
+}
+.wide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .select2:hover {
   background-color: #cc33ff;
   font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
-  font-size: 1.2rem;
+  font-size: 2.5vw;
 }
 </style>
