@@ -48,6 +48,7 @@ export default {
       })
       .then((data) => {
         let temp = []
+        console.log(data.result)
         console.log(data.result.large)
         for (let i = 0; i < data.result.large.length; i++) {
           if (
