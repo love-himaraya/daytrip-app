@@ -7,7 +7,7 @@
         v-for="(category, index) in categories"
         v-bind:key="category.categoryId"
         :style="{
-          backgroundImage: `url(${categories[index].image}).splice()`,
+          backgroundImage: `url(${categories[index].image})`,
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
         }"
@@ -71,7 +71,8 @@ export default {
               this.categories[n].image = ddata[1].foodImageUrl
               console.log(this.categories[n].image)
             })
-          await new Promise((s) => setTimeout(s, 1500))
+          await new Promise((s) => setTimeout(s, 1300))
+          this.categories.splice()
         }
       })
   },
