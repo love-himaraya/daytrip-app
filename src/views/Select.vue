@@ -2,11 +2,15 @@
   <div>
     <transition-group appear class="select">
       <div
-        :style="{ backgroundImage: 'url(' + category[index] + ')' }"
         v-bind:id="'select_image_' + index"
         class="select2"
         v-for="(category, index) in categories"
         v-bind:key="category.categoryId"
+        :style="{
+          backgroundImage: `url(${categories[index].image})`,
+          backgroundPosition: 'center center',
+          backgroundSize: 'cover',
+        }"
         @click="answer(category.categoryId)"
       >
         {{ category.categoryName }}
@@ -54,7 +58,7 @@ export default {
         }
         this.categories = temp
       })
-      .then(() => {
+      .then(async () => {
         for (let n = 0; n < this.categories.length; n++) {
           fetch(
             `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1099759103456456867&categoryId=${this.choice.start}-${this.categories[n].categoryId}`
@@ -63,12 +67,13 @@ export default {
               return res.json()
             })
             .then((data) => {
-              console.log(data)
-              console.log(data.result)
-              const ddata = data.result
+              let ddata = data.result
               console.log(ddata)
               this.categories[n].image = ddata[1].foodImageUrl
+              console.log(this.categories[n].image)
             })
+          await new Promise((s) => setTimeout(s, 1300))
+          this.categories.splice()
         }
       })
   },
@@ -110,7 +115,6 @@ export default {
     -2px 0px 1px #003366, 0px -2px 1px #003366;
   display: flex;
   height: 20vw;
-  background-color: aquamarine;
   border-radius: 100%;
   justify-content: center;
   align-items: center;
