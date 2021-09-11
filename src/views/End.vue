@@ -86,6 +86,44 @@ export default {
   border-radius: 50%;
   width: 60%;
   height: 80%;
+  border-radius: 50%;
+}
+
+.dishTitle {
+  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
+  font-size: 1.2rem;
+}
+
+.dishTitle {
+  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
+  font-size: 1.2rem;
+}
+
+.dishTitle {
+  font-family: "ヒラギノ角ゴ StdN", "Hiragino Kaku Gothic StdN", sans-serif;
+  font-size: 1.2rem;
+}
+
+.homeButton {
+  color: red;
+  border-width: 0px;
+  border: none; /* 枠線を消す */
+  outline: none; /* クリックしたときに表示される枠線を消す */
+  background: transparent; /* 背景の灰色を消す */
+}
+
+.startButton {
+  color: red;
+  border-width: 0px;
+  border: none; /* 枠線を消す */
+  outline: none; /* クリックしたときに表示される枠線を消す */
+  background: transparent; /* 背景の灰色を消す */
+}
+
+a {
+  text-decoration: none;
+  color: red;
+  font-size: 18px;
 }
 
 .dishTitle {
