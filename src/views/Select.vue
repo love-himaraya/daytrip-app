@@ -61,8 +61,9 @@ export default {
             .then((res) => {
               return res.json()
             })
-            .then((data) => {
+            .then(async (data) => {
               console.log(data)
+              await new Promise((s) => setTimeout(s, 3000))
               console.log(data.result)
               const ddata = data.result
               console.log(ddata)
