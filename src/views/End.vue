@@ -8,13 +8,14 @@
         /></a>
       </div>
     </div>
-
-    <button class="homeButton">
-      <router-link to="/">ホームに戻る</router-link>
-    </button>
-    <button class="startButton">
-      <router-link to="/start">メニューを選び直す</router-link>
-    </button>
+    <div>
+      <button class="homeButton">
+        <router-link to="/">ホームに戻る</router-link>
+      </button>
+      <button class="startButton">
+        <router-link to="/start">メニューを選び直す</router-link>
+      </button>
+    </div>
   </div>
 </template>
 
