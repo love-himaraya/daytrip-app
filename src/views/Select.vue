@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>何が食べたい？</h1>
     <transition-group appear class="select">
       <div
         v-bind:id="'select_image_' + index"
@@ -31,6 +32,7 @@ export default {
       // categories: [],
       categories: [{ image: "" }],
       pallet: ["264653", "2a9d8f", "e9c46a", "f4a261", "e76f51"],
+      pageOpen: true,
     }
   },
   methods: {
@@ -41,17 +43,31 @@ export default {
     backToStart() {
       this.$router.push("/") //Homeに戻る
     },
+    async fetchImage(index) {
+      if (this.pageOpen) {
+        const res = await fetch(
+          `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1099759103456456867&categoryId=${this.choice.start}-${this.categories[index].categoryId}`
+        )
+        const json = await res.json()
+        const data = json.result
+        this.categories[index].image = data[1].foodImageUrl
+        this.categories.splice()
+      }
+    },
+  },
+  destroyed() {
+    this.pageOpen = false
   },
   created() {
     fetch(
       "https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?applicationId=1005863942230053395&categoryType=medium"
     )
-      .then((rea) => {
-        return rea.json()
+      .then((res) => {
+        return res.json()
       })
       .then((data) => {
         // console.log(data.result.medium)
-        console.log(data.result.medium)
+        // console.log(data.result.medium)
         // console.log(this.choice.start)
         let temp = []
         for (let i = 0; i < data.result.medium.length; i++) {
@@ -63,21 +79,9 @@ export default {
         this.categories = temp
       })
       .then(async () => {
-        for (let n = 0; n < this.categories.length; n++) {
-          fetch(
-            `https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1099759103456456867&categoryId=${this.choice.start}-${this.categories[n].categoryId}`
-          )
-            .then((res) => {
-              return res.json()
-            })
-            .then((data) => {
-              let ddata = data.result
-              console.log(ddata)
-              this.categories[n].image = ddata[1].foodImageUrl
-              console.log(this.categories[n].image)
-            })
+        for (let i = 0; i < this.categories.length; i++) {
           await new Promise((s) => setTimeout(s, 1300))
-          this.categories.splice()
+          await this.fetchImage(i)
         }
       })
   },

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>作りたいジャンルを選んで下さい</h1>
     <div class="start">
       <transition-group appear class="wide">
         <div
