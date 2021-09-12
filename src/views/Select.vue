@@ -7,6 +7,9 @@
         v-for="(category, index) in categories"
         v-bind:key="category.categoryId"
         :style="{
+          backgroundColor: `#${
+            pallet[Math.floor(Math.random() * pallet.length)]
+          }`,
           backgroundImage: `url(${categories[index].image})`,
           backgroundPosition: 'center center',
           backgroundSize: 'cover',
@@ -27,6 +30,7 @@ export default {
     return {
       // categories: [],
       categories: [{ image: "" }],
+      pallet: ["264653", "2a9d8f", "e9c46a", "f4a261", "e76f51"],
     }
   },
   methods: {
